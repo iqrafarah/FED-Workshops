@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Schol's Outdoor Store</title>
+    <link rel="stylesheet" href="styles.css" />
+    <meta name="description" content="Schol's Outdoor Store is een fictieve webshop voor onderwijsdoeleind" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <h1 class="logo">
+          Schol's
+          <span>Outdoor</span>
+        </h1>
+
+        <nav class="main-nav" aria-label="Hoofdmenu">
+          <span class="nav-link" onclick="location.hash = 'tenten'">Tenten</span>
+          <span class="nav-link" onclick="location.hash = 'rugzakken'">Rugzakken</span>
+          <span class="nav-link" onclick="location.hash = 'kleding'">Kleding</span>
+          <span class="nav-link" onclick="location.hash = 'uitrusting'">Uitrusting</span>
+          <span class="nav-link nav-link--sale" onclick="location.hash = 'sale'">Uitverkoop</span>
+        </nav>
+
+        <div class="header-actions">
+          <div class="search-box">
+            <label for="search" aria-hidden="true" id="labelSearchInput">Zoek product</label>
+            <input id="search" type="text" placeholder="Zoek producten..." class="search-input" />
+            <div class="search-btn" onclick="doSearch()">🔍</div>
+          </div>
+
+          <button class="icon-btn" onclick="openModal('login-modal')" title="Account">👤</button>
+
+          <button class="icon-btn cart-btn" onclick="openCart()">
+            🛒
+            <span class="cart-count" id="cart-count">0</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero">
+        <div class="hero-text">
+          <h1>Uitgerust de natuur in.</h1>
+          <button class="btn btn--primary" onclick="document.getElementById('products').scrollIntoView({ behavior: 'smooth' })">Bekijk collectie</button>
+        </div>
+        <div class="hero-media">
+          <div class="hero-media-fallback" aria-hidden="true">🏔️</div>
+        </div>
+      </section>
+
+      <section class="shop" id="products">
+        <aside class="filters" aria-label="Filters">
+          <h2>Filters</h2>
+
+          <div class="filter-group">
+            <div class="filter-group-header" onclick="toggleFilter('cat')">
+              <h3>Categorie</h3>
+              <span class="chevron">▾</span>
+            </div>
+            <div class="filter-group-body" id="filter-cat">
+              <div class="filter-item">
+                <input type="checkbox" id="f-tent" />
+                <label for="f-tent">Tenten</label>
+              </div>
+              <div class="filter-item">
+                <input type="checkbox" id="f-backpack" />
+                <label for="f-backpack">Rugzakken</label>
+              </div>
+              <div class="filter-item">
+                <input type="checkbox" id="f-clothing" />
+                <label for="f-clothing">Kleding</label>
+              </div>
+              <div class="filter-item">
+                <input type="checkbox" id="f-gear" />
+                <label for="f-gear">Uitrusting</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <div class="filter-group-header" onclick="toggleFilter('price')">
+              <h3>Prijs</h3>
+              <span class="chevron">▾</span>
+            </div>
+            <div class="filter-group-body" id="filter-price">
+              <div class="filter-item">
+                <input type="checkbox" id="f-sale" />
+                <label for="f-sale">Uitverkoop</label>
+              </div>
+              <div class="filter-item">
+                <input type="checkbox" id="f-price-25-75" />
+                <label for="f-price-25-75">€25 – €75</label>
+              </div>
+              <div class="filter-item">
+                <input type="checkbox" id="f-price-75-150" />
+                <label for="f-price-75-150">€75 – €150</label>
+              </div>
+              <div class="filter-item">
+                <input type="checkbox" id="f-price-150-300" />
+                <label for="f-price-150-300">€150 – €300</label>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <div class="product-panel">
+          <div class="product-panel-header">
+            <h4 class="results-count">9 producten</h4>
+
+            <div class="sort-dropdown" onclick="toggleSort()">
+              <div class="sort-current">Sorteer op: Aanbevolen</div>
+              <ul class="sort-menu" id="sort-menu">
+                <li onclick="setSort('Aanbevolen')">Aanbevolen</li>
+                <li onclick="setSort('Prijs: laag naar hoog')">Prijs: laag naar hoog</li>
+                <li onclick="setSort('Prijs: hoog naar laag')">Prijs: hoog naar laag</li>
+                <li onclick="setSort('Nieuwste')">Nieuwste</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="product-grid" id="product-grid">
+            <!-- gevuld door script.js -->
+          </div>
+        </div>
+      </section>
+
+      <section class="newsletter">
+        <h2>Blijf op de hoogte</h2>
+        <p>Elke maand nieuwe routes, producttests en aanbiedingen.</p>
+        <form class="newsletter-form" onsubmit="return false;">
+          <label for="input1">Email adres</label>
+          <input type="email" id="input1" placeholder="jouw@email.nl" class="newsletter-input" />
+          <button type="submit" class="btn btn--primary">Aanmelden</button>
+        </form>
+      </section>
+    </main>
+
+    <div class="drawer" id="cart-drawer">
+      <div class="drawer-header">
+        <h2>Winkelwagen</h2>
+        <span class="close-x" onclick="closeCart()">×</span>
+      </div>
+      <div class="drawer-body" id="cart-items">
+        <p class="empty-state">Je winkelwagen is nog leeg.</p>
+      </div>
+      <div class="drawer-footer">
+        <div class="drawer-total">
+          Totaal:
+          <strong id="cart-total">€0,00</strong>
+        </div>
+        <button
+          class="btn btn--primary btn--full"
+          onclick="
+            openModal('checkout-modal');
+            closeCart();
+          "
+        >
+          Ga naar afrekenen
+        </button>
+      </div>
+    </div>
+
+    <div class="overlay" id="cart-overlay" onclick="closeCart()"></div>
+
+    <!-- ============ LOGIN MODAL ============ -->
+    <dialog class="modal" id="login-modal">
+      <div class="modal-box">
+        <span class="close-x" onclick="closeModal('login-modal')">×</span>
+        <h2>Inloggen</h2>
+        <form onsubmit="return false;">
+          <div class="form-row">
+            <input type="email" placeholder="E-mailadres" class="form-input" />
+          </div>
+          <div class="form-row">
+            <input type="password" placeholder="Wachtwoord *" class="form-input" />
+          </div>
+          <button type="submit" class="btn btn--primary btn--full">Inloggen</button>
+        </form>
+      </div>
+    </dialog>
+
+    <!-- ============ CHECKOUT MODAL ============ -->
+    <dialog class="modal" id="checkout-modal">
+      <div class="modal-box">
+        <span class="close-x" onclick="closeModal('checkout-modal')">×</span>
+        <h2>Afrekenen</h2>
+        <form onsubmit="return validateCheckout(event);">
+          <div class="form-row">
+            <label for="checkout-name">Naam</label>
+            <input type="text" placeholder="Volledige naam" class="form-input" id="checkout-name" />
+          </div>
+          <div class="form-row">
+            <label for="checkout-email">E-mailadres</label>
+            <input type="email" placeholder="E-mailadres *" class="form-input" id="checkout-email" />
+          </div>
+          <div class="form-row">
+            <label for="address">Adres</label>
+            <input id="address" type="text" placeholder="Adres" class="form-input" />
+          </div>
+          <div class="form-row form-row--split">
+            <label for="woonplaats">Woonplaats</label>
+            <input id="woonplaats" type="text" placeholder="Postcode" class="form-input" />
+            <input type="text" placeholder="Plaats" class="form-input" />
+          </div>
+          <button type="submit" class="btn btn--primary btn--full">Bestelling plaatsen</button>
+        </form>
+      </div>
+    </dialog>
+    <div class="overlay" id="modal-overlay"></div>
+
+    <div class="toast" id="toast"></div>
+
+    <footer class="site-footer">
+      <p>&copy; 2026 Schol's Outdoor Store — fictieve webshop voor onderwijsdoeleinden.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

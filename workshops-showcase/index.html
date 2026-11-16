@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Een verzameling van mijn Front-End Development workshopopdrachten aan Fontys ICT."
+    />
+    <title>FED Workshops</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="intro">
+        <p class="eyebrow">Fontys ICT &mdash; Front-End Development</p>
+        <h1>FED Workshops</h1>
+        <p class="intro__description">
+          Een verzameling van mijn Front-End Development workshopopdrachten aan Fontys ICT.
+        </p>
+        <p class="intro__stats" id="stats"></p>
+      </header>
+
+      <section class="workshops" aria-labelledby="workshops-heading">
+        <div class="toolbar">
+          <h2 id="workshops-heading" class="section-label">Opdrachten</h2>
+          <div class="filters" id="filters" role="group" aria-label="Filter op technologie"></div>
+        </div>
+        <ol id="workshop-list" class="workshop-list"></ol>
+        <p class="empty" id="empty" hidden>Geen opdrachten gevonden.</p>
+      </section>
+
+      <footer class="footer">
+        <span>Iqra Farah</span>
+        <a href="https://github.com/iqrafarah/FED-Workshops" target="_blank" rel="noreferrer"
+          >Repository &nearr;</a
+        >
+      </footer>
+    </main>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

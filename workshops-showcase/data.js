@@ -31,6 +31,7 @@ export const workshops = [
     description:
       "Een minimaal Next.js-starterproject met de App Router en React.",
     technologies: ["Next.js", "React", "TypeScript"],
+    demo: "https://acme.iqrafarah.nl/",
     source: "https://github.com/iqrafarah/FED-Workshops/tree/main/acme",
   },
   {
@@ -46,6 +47,7 @@ export const workshops = [
     description:
       "Een Next.js-productshop die de workshop uitbreidt met authenticatie en Supabase-integratie.",
     technologies: ["Next.js", "React", "TypeScript", "Supabase"],
+    demo: "https://final-auth.iqrafarah.nl/",
     source:
       "https://github.com/iqrafarah/FED-Workshops/tree/main/week-3-final-auth",
   },

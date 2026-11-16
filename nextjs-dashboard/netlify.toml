@@ -7,8 +7,8 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
-# POSTGRES_DATABASE is alleen de databasenaam (een kort, algemeen woord dat overal
-# in de code voorkomt) en geen geheim. Wachtwoord en connection strings blijven
-# gewoon gescand.
+# POSTGRES_DATABASE en POSTGRES_USER zijn alleen de database- en gebruikersnaam
+# (korte, algemene woorden die overal in de code voorkomen) en geen geheim.
+# Wachtwoord en connection strings blijven gewoon gescand.
 [build.environment]
-  SECRETS_SCAN_OMIT_KEYS = "POSTGRES_DATABASE"
+  SECRETS_SCAN_OMIT_KEYS = "POSTGRES_DATABASE,POSTGRES_USER"

@@ -2,6 +2,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { FakeStoreProduct } from '@/types/product';
 
+// Haal producten op bij elk bezoek in plaats van tijdens de build,
+// zodat de build niet faalt als de API onbereikbaar is vanaf de build-server.
+export const dynamic = 'force-dynamic';
+
 async function getProducts(): Promise<FakeStoreProduct[]> {
   const response = await fetch('https://fakestoreapi.com/products');
 

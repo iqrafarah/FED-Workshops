@@ -22,15 +22,9 @@ export const workshops = [
     description:
       "Een Next.js-workshopproject rond producten met de App Router en React.",
     technologies: ["Next.js", "React", "TypeScript"],
+    demo: "https://workshop-2-deel-a.iqrafarah.nl/",
     source:
       "https://github.com/iqrafarah/FED-Workshops/tree/main/workshop-2-deel-a",
-  },
-  {
-    title: "Workshop 2 - Deel B",
-    description: "De opdrachtmap is aanwezig, maar bevat momenteel geen bronbestanden.",
-    technologies: [],
-    source:
-      "https://github.com/iqrafarah/FED-Workshops/tree/main/workshop-2-deel-b",
   },
   {
     title: "ACME",

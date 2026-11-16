@@ -63,7 +63,12 @@ const render = (filter) => {
 
     const links = el("div", "links");
     if (workshop.demo) {
-      links.append(createLink(workshop.demo, "Demo", { className: "link--demo" }));
+      links.append(
+        createLink(workshop.demo, "Demo", {
+          className: "link--demo",
+          external: workshop.demo.startsWith("http"),
+        }),
+      );
     }
     links.append(createLink(workshop.source, "Code", { external: true }));
 

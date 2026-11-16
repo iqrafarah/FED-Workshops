@@ -1,0 +1,8 @@
+[build]
+  command = "pnpm run build"
+  publish = ".next"
+
+# Zorgt dat Netlify de Next.js-runtime gebruikt (server-rendering, routes, images).
+# Zonder deze runtime wordt .next als statische map geserveerd → overal 404.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

@@ -39,6 +39,7 @@ export const workshops = [
     description:
       "Een Next.js-dashboardproject met de App Router, authenticatie, data-toegang en dashboardschermen.",
     technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+    demo: "https://nextjs-dashboards.iqrafarah.nl/",
     source:
       "https://github.com/iqrafarah/FED-Workshops/tree/main/nextjs-dashboard",
   },
@@ -47,7 +48,7 @@ export const workshops = [
     description:
       "Een Next.js-productshop die de workshop uitbreidt met authenticatie en Supabase-integratie.",
     technologies: ["Next.js", "React", "TypeScript", "Supabase"],
-    demo: "https://final-auth.iqrafarah.nl/",
+    demo: "https://final-auth.netlify.app/",
     source:
       "https://github.com/iqrafarah/FED-Workshops/tree/main/week-3-final-auth",
   },
@@ -65,6 +66,7 @@ export const workshops = [
     description:
       "Een Next.js-productproject met helpers voor internationalisatie, productdata en Supabase-integratie.",
     technologies: ["Next.js", "React", "TypeScript", "Supabase", "i18n"],
+    demo: "https://week-5.iqrafarah.nl/",
     source: "https://github.com/iqrafarah/FED-Workshops/tree/main/week-5",
   },
 ].reverse();

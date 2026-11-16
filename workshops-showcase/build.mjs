@@ -5,6 +5,7 @@ const requiredFiles = [
   "styles.css",
   "app.js",
   "data.js",
+  "favicon.ico",
   "demos/a11y/index.html",
   "demos/mvc/index.html",
 ];

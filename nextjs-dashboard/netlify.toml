@@ -6,3 +6,9 @@
 # Zonder deze runtime wordt .next als statische map geserveerd → overal 404.
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+# POSTGRES_DATABASE is alleen de databasenaam (een kort, algemeen woord dat overal
+# in de code voorkomt) en geen geheim. Wachtwoord en connection strings blijven
+# gewoon gescand.
+[build.environment]
+  SECRETS_SCAN_OMIT_KEYS = "POSTGRES_DATABASE"

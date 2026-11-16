@@ -56,6 +56,7 @@ export const workshops = [
     description:
       "Een Next.js-productshop met productafbeeldingen en datahelpers op basis van Supabase.",
     technologies: ["Next.js", "React", "TypeScript", "Supabase"],
+    demo: "https://start-opd.iqrafarah.nl/",
     source:
       "https://github.com/iqrafarah/FED-Workshops/tree/main/week-4-start",
   },

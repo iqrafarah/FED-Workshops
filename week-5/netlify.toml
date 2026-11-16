@@ -1,0 +1,13 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+# Zorgt dat Netlify de Next.js-runtime gebruikt (server-rendering, routes, images).
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# NEXT_PUBLIC_-variabelen worden bewust in de browsercode gezet.
+# De Supabase publishable key is bedoeld om publiek te zijn (beveiliging via RLS),
+# dus deze mag de secrets-scan overslaan.
+[build.environment]
+  SECRETS_SCAN_OMIT_KEYS = "NEXT_PUBLIC_SUPABASE_URL,NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY"
